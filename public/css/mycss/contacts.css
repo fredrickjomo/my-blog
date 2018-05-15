@@ -1,0 +1,43 @@
+.card h4{
+   color: #1c7430;
+}
+.fa{
+    font-size: 25px;
+}
+.fa-facebook-square{
+    color: blue;
+}
+.fa-twitter-square{
+    color: #005cbf;
+
+}
+.fa-youtube-square{
+    color: red;
+}
+.fa-whatsapp{
+    color: #1c7430;
+}
+a{
+    font-size: 20px;
+}
+.col-md-4 img{
+    height: 100%;
+}
+.message-div{
+    background-color: #005cbf;
+    width: 100%;
+    height: auto;
+    color: #ffffff;
+
+}
+#message-header{
+    padding-bottom:3%;
+    align-items: center;
+    text-align: center;
+}
+form{
+    padding-bottom: 5%;
+}
+.carousel-item img{
+    height:350px;
+ }

@@ -1,0 +1,49 @@
+/*!
+ * Start Bootstrap - Blog Home (https://startbootstrap.com/template-overviews/blog-home)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-blog-home/blob/master/LICENSE)
+ */
+
+body {
+    padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+    body {
+        padding-top: 56px;
+    }
+}
+.home-nav{
+    background-color: green;
+    color: white;
+}
+.-black-tie{
+    color: white;
+    font-weight: bolder;
+    border-radius: 15px;
+}
+footer{
+    background-color: green;
+}
+.dropdown .dropdown-menu{
+    background-color: #1c7430;
+    padding-left: 5%;
+
+}
+.dropdown-menu{
+    display: none;
+}
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
+.dropdown-menu a{
+    color: #ffffff;
+
+}
+
+.dropdown .dropdown-menu a:hover{
+    color: #1b1e21;
+    text-decoration: none;
+}
+
+
