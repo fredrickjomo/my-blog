@@ -274,6 +274,7 @@
                 <!--Start of Delete Users link-->
 
                 <li class="nav-level"><i class="fa fa-user"></i>&nbsp;&nbsp;USERS</li>
+                <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-calendar"></i><span>View Users</span><i class="icon-arrow-right"></i></a>
                 <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-calendar"></i><span>Delete / Remove User</span><i class="icon-arrow-right"></i></a>
 
                 <!--Edit of Delete Users link-->
