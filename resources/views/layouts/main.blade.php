@@ -24,7 +24,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark home-nav fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">MONITOR 254</a>
+        <a class="navbar-brand" href="{{ url('/') }}">MONITOR254</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -40,24 +40,24 @@
                         <span class="caret"></span><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>&nbsp;Categories
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a href="{{route('category.showCelebrities')}}">Celebrities</a><br>
-                        <a href="{{route('category.showPolitics')}}">Politics</a><br>
-                        <a href="{{route('category.showSports')}}">Sports</a><br>
-                        <a href="{{route('category.showTrends')}}">Trends</a><br>
-                        <a href="{{route('category.showCampusVibe')}}">Campus Vibe</a><br>
-                        <a href="{{route('category.showRelationships')}}">Relationships</a><br>
-                        <a href="{{route('category.showHealth')}}">Health</a><br>
-                        <a href="{{route('category.showBettingTips')}}">Betting tips</a><br>
-                        <a href="{{route('category.showMovies')}}">Movies</a><br>
-                        <a href="{{route('category.showUnclassified')}}">Unclassified</a><br>
+                        <a href="{{route('posts.showCelebrities')}}">Celebrities</a><br>
+                        <a href="{{route('posts.showPolitics')}}">Politics</a><br>
+                        <a href="{{route('posts.showSports')}}">Sports</a><br>
+                        <a href="{{route('posts.showTrends')}}">Trends</a><br>
+                        <a href="{{route('posts.showCampusVibe')}}">Campus Vibe</a><br>
+                        <a href="{{route('posts.showRelationships')}}">Relationships</a><br>
+                        <a href="{{route('posts.showHealth')}}">Health</a><br>
+                        <a href="{{route('posts.showBettingTips')}}">Betting tips</a><br>
+                        <a href="{{route('posts.showMovies')}}">Movies</a><br>
+                        <a href="{{route('posts.showUnclassified')}}">Unclassified</a><br>
                     </div></li>
-                <li><a class="nav-link active" href="{{route('category.showTrends')}}"><span class="-black-tie">t</span>&nbsp;Trends</a></li>
+                <li><a class="nav-link active" href="{{route('posts.showTrends')}}"><span class="-black-tie">t</span>&nbsp;Trends</a></li>
                 <li class="nav-item">
                     <a class="nav-link active" href="{{route('about-us.index')}}"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;About Us</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="contact-us"><i class="fa fa-phone"></i>&nbsp;Contact Us</a>
+                    <a class="nav-link active" href="{{route('contact-us.index')}}"><i class="fa fa-phone"></i>&nbsp;Contact Us</a>
                 </li>
                 <style>
                     .dropdown > #profile-pic{
@@ -92,13 +92,15 @@
         </div>
     </div>
 </nav>
+@include('partials.success')
+@include('partials.errors')
 @yield('content')
 
 
 <!-- Footer -->
 <footer class="py-5">
     <div class="container footer">
-        <p class="m-0 text-center text-white">Copyright &copy; Monitor 254 - 2018</p>
+        <p class="m-0 text-center text-white">Copyright &copy; Monitor254 - 2018</p>
     </div>
     <!-- /.container -->
 </footer>

@@ -11,29 +11,36 @@
 |
 */
 
+
 Route::get('/', function () {
-    return view('home');
+
+    $post=DB::table('posts')->orderBy('created_at','desc')->paginate(5);
+    return view('/home')->with(compact('post'));
 });
 
 Auth::routes();
 Route::middleware(['auth'])->group(function(){ //routes to be accessed once a user logs in
-Route::resource('blog-administration','AdminController')->middleware('is_admin');
+Route::resource('administration','AdminController')->middleware('is_admin');
+Route::get('administration/view-posts/1','AdminController@viewPosts')->name('administration.viewPosts');
+Route::get('administration/edit/update','AdminController@editPosts')->name('administration.editPosts');
+Route::get('administration/posts/delete/','AdminController@deletePost')->name('administration.deletePost');
 
 
 
 });
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/', 'HomeController@index')->name('home');
 Route::resource('contact-us','ContactsController');
 Route::resource('about-us','AboutUsController');
-Route::resource('category','PostsController');
-Route::get('category/celebrities/1','PostsController@showCelebrities')->name('category.showCelebrities');
-Route::get('category/politics/2','PostsController@showPolitics')->name('category.showPolitics');
-Route::get('category/sports/3','PostsController@showSports')->name('category.showSports');
-Route::get('category/trends/4','PostsController@showTrends')->name('category.showTrends');
-Route::get('category/campus-vibe/5','PostsController@showCampusVibe')->name('category.showCampusVibe');
-Route::get('category/relationships/6','PostsController@showRelationships')->name('category.showRelationships');
-Route::get('category/health/7','PostsController@showHealth')->name('category.showHealth');
-Route::get('category/betting-tips/8','PostsController@showBettingTips')->name('category.showBettingTips');
-Route::get('category/movies/9','PostsController@showMovies')->name('category.showMovies');
-Route::get('category/unclassified/10','PostsController@showUnclassified')->name('category.showUnclassified');
+Route::resource('posts','PostController');
+
+Route::get('posts/category/celebrities/','PostController@showCelebrities')->name('posts.showCelebrities');
+Route::get('posts/category/politics','PostController@showPolitics')->name('posts.showPolitics');
+Route::get('posts/category/sports','PostController@showSports')->name('posts.showSports');
+Route::get('posts/category/trends','PostController@showTrends')->name('posts.showTrends');
+Route::get('posts/category/campus-vibe','PostController@showCampusVibe')->name('posts.showCampusVibe');
+Route::get('posts/category/relationships','PostController@showRelationships')->name('posts.showRelationships');
+Route::get('posts/category/health','PostController@showHealth')->name('posts.showHealth');
+Route::get('posts/category/betting-tips','PostController@showBettingTips')->name('posts.showBettingTips');
+Route::get('posts/category/movies','PostController@showMovies')->name('posts.showMovies');
+Route::get('posts/category/unclassified','PostController@showUnclassified')->name('posts.showUnclassified');
 

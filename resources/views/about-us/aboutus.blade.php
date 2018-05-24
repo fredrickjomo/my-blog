@@ -1,116 +1,38 @@
+<title>About Us</title>
 @extends('layouts.main')
-<title>About us</title>
 @section('content')
-
-    <link rel="stylesheet" href="css/mycss/aboutus.css">
-    <div class="container-fluid mycarousel">
-        <div class="row">
-            <div class="col-md-12">
-                <div id="slideIndicators" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#slideIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#slideIndicators" data-slide-to="1"></li>
-                        <li data-target="#slideIndicators" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="{{asset('images/arsenal.jpg')}}" alt="First slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h4>Sports</h4>
-                                <p>We got your sports news covered</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="../KOIMS/images/image_slider/image2.jpg" alt="Second slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h4>Celebrities</h4>
-                                <p>Here is the latest</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="{{asset('images/politics.jpg')}}" alt="Third slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h4>Politics</h4>
-                                <p>welcome home</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="{{asset('images/trends.jpg')}}" alt="Third slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h4>Trends</h4>
-                                <p>What's currently trending in the globe?</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="{{asset('images/campus-vipe.png')}}" alt="Third slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h4>Campus Vipe</h4>
-                                <p>Latest on the campus life</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="../KOIMS/images/image_slider/image6.jpg" alt="Third slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h4>Relationships</h4>
-                                <p>Tips on how to manage your relationship and many more</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="../KOIMS/images/image_slider/image7.jpg" alt="Third slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h4>Health</h4>
-                                <p>Get to know more about your health</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="{{asset('images/betting.jpg')}}" alt="Third slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h4>Betting Tips</h4>
-                                <p>Make money by being a fanatic!</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="../KOIMS/images/image_slider/image9.jpg" alt="Third slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h4>Movies</h4>
-                                <p>Catch latest on movies.</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="{{asset('images/unclassified.png')}}" alt="Third slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h4>&ldquo;Unclassified</h4>
-                                <p>More than what you require</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="{{asset('images/morata.jpg')}}" alt="Third slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h4>&ldquo;More sports news</h4>
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <a class="carousel-control-prev" href="#slideIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#slideIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
+   <link rel="stylesheet" href="{{asset('css/mycss/aboutus.css')}}">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 top-div">
+            <h1>Welcome</h1>
+            <h3>We're Monitor254, a creative blog site that loves to Learn , <br>Collaborate ,Create
+            , Entertain , Inform and Educate.</h3>
+            <div class="row jumbotron">
+                <div class="col-md-8" ><img src="{{asset('images/others/logo.png')}}"> </div>
+                <div class="col-md-4 right-div">
+                    <h3>About Us</h3>
+                    <p>Monitor254 is a platforn which is readily available and ready to give you the latest information
+                    from all around the world.<br>
+                    We cover all your favourite sports news and latest updates , relationship content , campus vibe, health tips ,
+                    betting tips and much more information which you will enjoy.
+                        Our objective is to <strong>Inform , Educate and Entertain.</strong></p>
+                    <h4>Connect:</h4>
+                    <ul>
+                        <li><a href="https://facebook.com/Monitor254"> <i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://twitter.com/@Monitorkenya"><i class="fa fa-twitter"></i></a> </li>
+                        <li><a href=""><i class="fa fa-google-plus"></i> </a></li>
+                        <li><a href=""><i class="fa fa-whatsapp"></i></a> </li>
+                    </ul>
                 </div>
 
 
-
-
-
-
-
             </div>
-        </div>
-    </div>
 
+
+        </div>
+
+    </div>
+</div>
 
     @endsection

@@ -15,6 +15,11 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('category');
+            $table->string('title');
+            $table->string('photo')->default('default.jpg');
+            $table->string('description');
+            $table->string('writer')->default('Fredy Obi');
             $table->timestamps();
         });
     }

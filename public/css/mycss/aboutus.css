@@ -1,11 +1,36 @@
-.row{
-    height: 20%;
-
+.top-div h1{
+    text-align: center;
+    text-decoration: underline;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-weight:bold;
 }
-.row .mycarousel img{
-    height: 20%;
-    width: 10%;
+.top-div h3{
+    text-align: center;
 }
-.carousel-item h4{
-    color: #1d2124;
+img{
+    width: 100%;
+}
+.right-div h3{
+    font-weight:bold;
+    text-decoration: underline;
+    padding-bottom: 10px;
+}
+.right-div p{
+    line-height: 2em;
+    font-size: 20px;
+}
+.right-div h4{
+    font-weight: bold;
+    text-decoration: underline;
+}
+.right-div ul{
+    list-style-type: disc;
+    font-size: 25px;
+}
+.right-div i:hover{
+    color: #0b2e13;
+}
+.right-div i:visited{
+    color: red;
 }

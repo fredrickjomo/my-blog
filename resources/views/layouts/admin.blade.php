@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Administration-Monitor 254</title>
+    <title>Administration-Monitor254</title>
     <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -60,7 +60,7 @@
 
     </style>
     <header class="main-header-top hidden-print">
-        <a href="" class="logo"><img class="img-fluid able-logo" src="assets/images/logo1.png" alt="MONITOR 254"></a>
+        <a href="" class="logo"><img class="img-fluid able-logo" src="assets/images/logo1.png" alt="MONITOR254"></a>
         <nav class="navbar navbar-static-top">
             <!-- Sidebar toggle button--><a href="#!" data-toggle="offcanvas" class="sidebar-toggle"></a>
             <!-- Navbar Right Menu-->
@@ -136,7 +136,16 @@
                                 <div class="dropdown-divider m-0"></div>
                             </li>
                             <li><a href="lock-screen.html"><i class="icon-lock"></i> Lock Screen</a></li>
-                            <li><a href="#!"><i class="icon-logout"></i> Logout</a></li>
+                            <li><a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    <i class="icon-logout"></i> {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+
 
                         </ul>
                     </li>
@@ -233,7 +242,7 @@
             <ul class="sidebar-menu">
                 <li class="nav-level">GENERAL</li>
                 <li class="active treeview">
-                    <a class="waves-effect waves-dark" href="{{route('blog-administration.index')}}">
+                    <a class="waves-effect waves-dark" href="{{route('administration.index')}}">
                         <i class="fa fa-home"></i><span> Home</span>
                     </a>
                 </li>
@@ -241,7 +250,7 @@
 
                 <!-- start of view post link-->
 
-                <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> View All Posts</span><i class="icon-arrow-right"></i></a>
+                <li class="treeview"><a class="waves-effect waves-dark" href="{{route('administration.viewPosts')}}"><i class="icon-briefcase"></i><span> View All Posts</span><i class="icon-arrow-right"></i></a>
 
                 </li>
 
@@ -249,7 +258,7 @@
 
                 <!--Start of Add post link-->
 
-                <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span> Add A New Post</span><span class="label label-success menu-caption">New</span><i class="icon-arrow-right"></i></a>
+                <li class="treeview"><a class="waves-effect waves-dark" href="{{route('administration.create')}}"><i class="icon-book-open"></i><span> Add A New Post</span><span class="label label-success menu-caption">New</span><i class="icon-arrow-right"></i></a>
 
                 </li>
 
@@ -257,7 +266,7 @@
 
                 <!--Start of Edit/update link-->
 
-                <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="fa fa-edit"></i><span> Edit / Update Post</span><i class="icon-arrow-right"></i></a>
+                <li class="treeview"><a class="waves-effect waves-dark" href="{{route('administration.editPosts')}}"><i class="fa fa-edit"></i><span> Edit / Update Post</span><i class="icon-arrow-right"></i></a>
 
                 </li>
 
@@ -265,7 +274,7 @@
 
                 <!--Start of Delete post link-->
 
-                <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="fa fa-trash"></i><span> Delete / Remove Post</span><i class="icon-arrow-right"></i></a>
+                <li class="treeview"><a class="waves-effect waves-dark" href="{{route('administration.deletePost')}}"><i class="fa fa-trash"></i><span> Delete / Remove Post</span><i class="icon-arrow-right"></i></a>
 
                 </li>
 
@@ -697,7 +706,7 @@
 <!-- Warning Section Ends -->
 
 <!-- Required Jqurey -->
-<script src="{{asset('css/admin/plugins/jquery/dist/jquery.min.js')}}"></script>
+<script src="{{asset('js/jquery-3.2.1.js')}}"></script>
 <script src="{{asset('css/admin/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
 <script src="{{asset('css/admin/plugins/tether/dist/js/tether.min.js')}}"></script>
 
@@ -712,7 +721,7 @@
 <script src="{{asset('css/admin/plugins/jquery.nicescroll/jquery.nicescroll.min.js')}}"></script>
 
 <!--classic JS-->
-<script src="{{asset('css/admin/plugins/classie/classie.js')}}"></script>
+<script src="{{asset('css1/admin/plugins/classie/classie.js')}}"></script>
 
 <!-- notification -->
 <script src="{{asset('css/admin/plugins/notification/js/bootstrap-growl.min.js')}}"></script>

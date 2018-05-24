@@ -1,5 +1,10 @@
 @extends('layouts.main')
 @section('content')
+    <style>
+        .card img{
+            height:300px;
+        }
+    </style>
     <!-- Page Content -->
     <div class="container">
 
@@ -8,60 +13,72 @@
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
-                <h1 class="my-4">Posts
-                    <small>All Categories</small>
+                <h1 class="my-4">Home
+                    <small>What's New!</small>
                 </h1>
 
                 <!-- Blog Post -->
+                @foreach($post as $posts)
                 <div class="card mb-4">
-                    <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+                    <img class="card-img-top" src="/images/posts_caption/{{$posts->photo}}" alt="Card image cap">
                     <div class="card-body">
-                        <h2 class="card-title">Post Title</h2>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                        <a href="#" class="btn btn-primary">Read More &rarr;</a>
-                    </div>
-                    <div class="card-footer text-muted">
-                        Posted on January 1, 2017 by
-                        <a href="#">Start Bootstrap</a>
-                    </div>
-                </div>
+                        <h2 class="card-title">{{$posts->title}}</h2>
+                        <p class="card-text">{{str_limit(strip_tags($posts->description),80)}}
+                        @if(strlen(strip_tags($posts->description))>80)
+                                <a href="{{route('posts.show',$posts->id)}}" class="btn btn-primary">Read More &rarr;</a>
+                            @endif
+                        </p>
 
-                <!-- Blog Post -->
-                <div class="card mb-4">
-                    <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-                    <div class="card-body">
-                        <h2 class="card-title">Post Title</h2>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                        <a href="#" class="btn btn-primary">Read More &rarr;</a>
                     </div>
                     <div class="card-footer text-muted">
-                        Posted on January 1, 2017 by
-                        <a href="#">Start Bootstrap</a>
+                        Posted on {{date('j-M-Y',strtotime( $posts->created_at))}} by
+                        <a href="#">{{$posts->writer}}</a>&nbsp;
+                        <h2 style="color: black;">Share On:</h2>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(Request::fullUrl())}}"
+                           target="_blank"><button class="btn btn-primary">Facebook</button></a>
+                        <a href="https://twitter.com/intent/tweet?url={{ urlencode(Request::fullUrl()) }}" target="_blank">
+                            <button class="btn btn-primary">Twitter</button>
+                        </a>
+                        <a href="https://plus.google.com/share?url={{ urlencode(Request::fullUrl()) }}" target="_blank">
+                            <button class="btn btn-danger">Google</button>
+                        </a>
                     </div>
                 </div>
+                @endforeach
 
-                <!-- Blog Post -->
-                <div class="card mb-4">
-                    <img class="card-img-top" src="../../../image1.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h2 class="card-title">Post Title</h2>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                        <a href="#" class="btn btn-primary">Read More &rarr;</a>
-                    </div>
-                    <div class="card-footer text-muted">
-                        Posted on January 1, 2017 by
-                        <a href="#">Start Bootstrap</a>
-                    </div>
-                </div>
+
+                <script>
+                    var popupMeta = {
+                        width: 400,
+                        height: 400
+                    }
+                    $(document).on('click', '.social-share', function(event){
+                        event.preventDefault();
+
+                        var vPosition = Math.floor(($(window).width() - popupMeta.width) / 2),
+                            hPosition = Math.floor(($(window).height() - popupMeta.height) / 2);
+
+                        var url = $(this).attr('href');
+                        var popup = window.open(url, 'Social Share',
+                            'width='+popupMeta.width+',height='+popupMeta.height+
+                            ',left='+vpPsition+',top='+hPosition+
+                            ',location=0,menubar=0,toolbar=0,status=0,scrollbars=1,resizable=1');
+
+                        if (popup) {
+                            popup.focus();
+                            return false;
+                        }
+                    });
+                </script>
+
+
 
                 <!-- Pagination -->
                 <ul class="pagination justify-content-center mb-4">
                     <li class="page-item">
-                        <a class="page-link" href="#">&larr; Previous</a>
+                        {!! $post->links(); !!}
                     </li>
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#">Next &rarr;</a>
-                    </li>
+
                 </ul>
 
             </div>
@@ -88,38 +105,38 @@
                             <div class="col-lg-6">
                                 <ul class="list mb-0">
                                     <li>
-                                        <a href="#">Celebrities</a>
+                                        <a href="{{route('posts.showCelebrities')}}">Celebrities</a>
                                     </li>
                                     <li>
-                                        <a href="#">Politics</a>
+                                        <a href="{{route('posts.showPolitics')}}">Politics</a>
                                     </li>
                                     <li>
-                                        <a href="#">Sports</a>
+                                        <a href="{{route('posts.showSports')}}">Sports</a>
                                     </li>
                                     <li>
-                                        <a href="#">Trends</a>
+                                        <a href="{{route('posts.showTrends')}}">Trends</a>
                                     </li>
                                     <li>
-                                        <a href="#">Campus Vibe</a>
+                                        <a href="{{route('posts.showCampusVibe')}}">Campus Vibe</a>
                                     </li>
                                 </ul>
                             </div>
                             <div class="col-lg-6">
                                 <ul class="list mb-0">
                                     <li>
-                                        <a href="#">Relationships</a>
+                                        <a href="{{route('posts.showRelationships')}}">Relationships</a>
                                     </li>
                                     <li>
-                                        <a href="#">Health</a>
+                                        <a href="{{route('posts.showHealth')}}">Health</a>
                                     </li>
                                     <li>
-                                        <a href="#">Betting Tips</a>
+                                        <a href="{{route('posts.showBettingTips')}}">Betting Tips</a>
                                     </li>
                                     <li>
-                                        <a href="#">Movies</a>
+                                        <a href="{{route('posts.showMovies')}}">Movies</a>
                                     </li>
                                     <li>
-                                        <a href="#">Unclassified</a>
+                                        <a href="{{route('posts.showUnclassified')}}">Unclassified</a>
                                     </li>
                                 </ul>
                             </div>
@@ -148,3 +165,4 @@
     <!-- /.container -->
 
 @endsection
+<script src="{{asset('js/jquery-3.2.1.js')}}"></script>

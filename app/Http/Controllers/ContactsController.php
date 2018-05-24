@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contacts;
+use Dotenv\Validator;
 use Illuminate\Http\Request;
 
 class ContactsController extends Controller
@@ -37,6 +38,21 @@ class ContactsController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+            'name'=>'required|min:4|max:20',
+            'email' => 'required|min:10|max:50',
+            'message' => 'required|min:20|max:200',
+        ]);
+
+        $contact=Contacts::create([
+            'name'=>$request->input('name'),
+            'email'=>$request->input('email'),
+            'message'=>$request->input('message'),
+        ]);
+        if($contact){
+            return redirect()->route('contact-us.index')->with('success','Message sent successfully! , We will get back to you shortly');
+        }
+
     }
 
     /**

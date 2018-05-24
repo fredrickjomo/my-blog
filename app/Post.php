@@ -4,10 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Contacts extends Model
+class Post extends Model
 {
     //
+    protected $table='posts';
+
     protected $fillable = [
-        'name','email','message',
+        'category','title','photo','description',
     ];
 }
